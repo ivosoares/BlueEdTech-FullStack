@@ -18,6 +18,7 @@ const addTodo = (text) => {
   }
   todoItems.push(todo);
   renderTodo(todo);
+  console.log(todoItems);
 }
 
 
@@ -57,8 +58,19 @@ const renderTodo = (todo) => {
 
   // criando um li no DOM 
   const listItem = document.createElement("li");
-  listItem.setAttribute('class', 'todo-item');
 
+  //verifica se a tarefa esta concluida 
+  const isCheck = todo.checked ? 'done' : '';
+
+  // if(todo.checked) {
+  //   ischeck = 'done'
+  // }
+
+  // adiciona a classe todo-item ao elemento li recem criado
+  listItem.setAttribute('class', `todo-item ${isCheck}`);
+
+  // adiciona o atributo customizado 'key' no li recem criado
+  listItem.setAttribute('data-key', todo.id);
   // adicionar a li criada dentro da ul list
   listItem.innerHTML = `
     <input id=${todo.id} type="checkbox"/>

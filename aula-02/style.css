@@ -76,7 +76,7 @@ input[type="checkbox"] {
 .tick::before {
   content: '✓';
   font-size: 20px;
-  display: block;
+  display: none;
 }
 
 .delete-todo {
@@ -89,4 +89,11 @@ input[type="checkbox"] {
 svg {
   width: 34px;
   height: 34px;
+}
+
+.done span {
+  text-decoration: line-through;
+}
+.done .tick::before {
+  display: block;
 }
