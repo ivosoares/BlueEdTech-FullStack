@@ -56,25 +56,34 @@ const renderTodo = (todo) => {
   const list = document.querySelector('.js-todo-list');
   console.log(list);
 
+  // verifica se existe o elemento no dom atravez da seu identificador (data-key)
+  const todoExist = document.querySelector(`[data-key='${todo.id}']`);
+  console.log('elemento que achou', todoExist);
+
   // criando um li no DOM 
   const listItem = document.createElement("li");
 
-  //verifica se a tarefa esta concluida 
-  const isCheck = todo.checked ? 'done' : '';
 
+  // IF do jeito velho
+  // const isCheck = '';
   // if(todo.checked) {
-  //   ischeck = 'done'
+  //   isCheck = 'done';
+  // }else {
+  //   isCheck = '';
   // }
+
+  // if ternario
+  const isCheck = todo.checked ? 'done' : '';
 
   // adiciona a classe todo-item ao elemento li recem criado
   listItem.setAttribute('class', `todo-item ${isCheck}`);
 
   // adiciona o atributo customizado 'key' no li recem criado
   listItem.setAttribute('data-key', todo.id);
-  // adicionar a li criada dentro da ul list
+
   listItem.innerHTML = `
     <input id=${todo.id} type="checkbox"/>
-    <label for=${todo.id} class="tick js-tick"></label>
+    <label for=${todo.id} class="tick js-tick" onClick="toogleDone(${todo.id})"></label>
     <span>${todo.text}</span>
     <button class="delete-todo js-delete-todo">
       <svg>
@@ -83,6 +92,27 @@ const renderTodo = (todo) => {
     </button>
   `;
 
-  list.append(listItem);
+  // quando voce achar o elemento nao inclui ele na ul ou seja nao faz o append, pelo contrario substitui
+  if(todoExist) {
+    // subistuir o elemento
+    list.replaceChild(listItem, todoExist)
+  } else {
+    list.append(listItem);
+  }
+}
 
+const toogleDone = (id) => {
+  // eu preciso encontrar o indice do elemento na minha lista
+
+  // const index = todoItems.findIndex((todo) => {
+  //   return todo.id === id
+  // });
+
+  // forma simplificada
+  const index = todoItems.findIndex(todo => todo.id === id);
+  todoItems[index].checked = !todoItems[index].checked;
+  console.log(todoItems[index]);
+
+  //renderizar a tarefa apos a mudanca do concluido
+  renderTodo(todoItems[index]);
 }
