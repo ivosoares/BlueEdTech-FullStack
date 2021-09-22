@@ -26,7 +26,7 @@ const form = document.querySelector('.js-form');
 console.log(form);
 
 // escutar o evento de submit do formulario
-form.addEventListener('submit', (evento) => {
+form.addEventListener('submit', evento => {
   evento.preventDefault();
   console.log(evento);
 
@@ -38,7 +38,12 @@ form.addEventListener('submit', (evento) => {
   console.log(text);
 
   if (text !== '') {
+    // envia o texto digitado para a funcao addTodo que espera um texto para adicionar na lista
     addTodo(text);
+    // limpa o input
+    input.value = '';
+    // da o foco no input
+    input.focus();
   }
 })
 
