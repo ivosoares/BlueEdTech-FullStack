@@ -51,3 +51,42 @@ input[type="text"] {
   justify-content: space-between;
 }
 
+.todo-item span {
+  font-size: 1.3rem;
+  margin-right: 10px;
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.tick {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #333;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tick::before {
+  content: '✓';
+  font-size: 20px;
+  display: block;
+}
+
+.delete-todo {
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+svg {
+  width: 34px;
+  height: 34px;
+}

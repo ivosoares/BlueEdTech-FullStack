@@ -26,7 +26,7 @@ const form = document.querySelector('.js-form');
 console.log(form);
 
 // escutar o evento de submit do formulario
-form.addEventListener('submit', evento => {
+form.addEventListener('submit', (evento) => {
   evento.preventDefault();
   console.log(evento);
 
@@ -60,7 +60,17 @@ const renderTodo = (todo) => {
   listItem.setAttribute('class', 'todo-item');
 
   // adicionar a li criada dentro da ul list
-  listItem.innerHTML = todo.text;
+  listItem.innerHTML = `
+    <input id=${todo.id} type="checkbox"/>
+    <label for=${todo.id} class="tick js-tick"></label>
+    <span>${todo.text}</span>
+    <button class="delete-todo js-delete-todo">
+      <svg>
+        <use href="#delete-icon"></use>
+      </svg>
+    </button>
+  `;
+
   list.append(listItem);
 
 }
