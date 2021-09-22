@@ -49,16 +49,23 @@ form.addEventListener('submit', (evento) => {
 })
 
 
-
 // Funcao que renderiza os Todos na tela
 const renderTodo = (todo) => {
+  
+
   // mapear a lista de onde deve ser incluida a tarefa
   const list = document.querySelector('.js-todo-list');
   console.log(list);
 
   // verifica se existe o elemento no dom atravez da seu identificador (data-key)
   const todoExist = document.querySelector(`[data-key='${todo.id}']`);
+  // retorna o elemento html que ele achou no DOM
   console.log('elemento que achou', todoExist);
+
+  if(todo.deleted) {
+    todoExist.remove();
+    return
+  }
 
   // criando um li no DOM 
   const listItem = document.createElement("li");
@@ -85,7 +92,7 @@ const renderTodo = (todo) => {
     <input id=${todo.id} type="checkbox"/>
     <label for=${todo.id} class="tick js-tick" onClick="toogleDone(${todo.id})"></label>
     <span>${todo.text}</span>
-    <button class="delete-todo js-delete-todo">
+    <button class="delete-todo js-delete-todo" onClick="deleteTodo(${todo.id})">
       <svg>
         <use href="#delete-icon"></use>
       </svg>
@@ -115,4 +122,18 @@ const toogleDone = (id) => {
 
   //renderizar a tarefa apos a mudanca do concluido
   renderTodo(todoItems[index]);
+}
+
+const deleteTodo = (id) => {
+  // preciso encontrar o indice do elemento para excluir
+  const index = todoItems.findIndex(todo => todo.id === id);
+  // vai me retornar o indice da tarefa que eu desejo excluir
+  const todoForDelete = {
+    deleted: true,
+    ...todoItems[index]
+  }
+  // remove um item da lista de acordo com o indice onde comeca a excluisa e a quantidade a ser excluido
+  todoItems.splice(index, 1);
+
+  renderTodo(todoForDelete);
 }
