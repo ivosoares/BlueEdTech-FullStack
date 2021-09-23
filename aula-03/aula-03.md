@@ -9,3 +9,20 @@ A proposta do desafio é o desenvolvimento de uma aplicacao web para cadastro de
 A proposta de layout para o projeto deve seguir o prototipo desenvolvido no figma segundo a imagem abaixo. [Acesse o Prototipo](https://www.figma.com/file/MQSP4IMMmPyKGRWO4RYtk3/Blue-Filmes?node-id=0%3A1)
 
 ![Imagem do projeto](filmes.jpg)
+
+
+Exemplo de listagem de array no html
+
+```js
+let array = [];
+const elementoLista = document.getElementById('lista');
+console.log(elementoLista);
+array.map((pessoa, indice) => {
+  console.log(pessoa);
+  elementoLista.insertAdjacentHTML('beforeend', `
+    <div>
+      <p>${pessoa.nome} ${pessoa.sobrenome}</p>
+    <div>
+  `)
+})
+```
