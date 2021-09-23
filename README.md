@@ -28,4 +28,8 @@ Materiais do módulo de Full Stack  da blue EdTech
 
 - [Aula 01 - Revisão Javascript](./aula01/../aula-01/aula-01.md)  
 
-- [Aula 02 - TodoList Javascript](./aula01/../aula-01/aula-01.md)
+- [Aula 02 - TodoList Javascript](./aula-02/aula02.md)
+
+- [Aula 03 - Segunda parte TodoList Javascript(aula 02) e Inicio Projeto Filmes](./aula-03/aula-03.md)
+
+- [Aula 04 - Colabcode desenvolvimento Projeto Filmes](./aula-04/aula-04.md)

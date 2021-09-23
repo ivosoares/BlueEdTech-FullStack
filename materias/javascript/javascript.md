@@ -1,5 +1,7 @@
 # Javascript
 
+- [Exercicios](./exercicios/exercicios-revisao-js.md)
+
 - Linguagem criada em 1995 por Brendan Eich
 - Criou e batizou a linguagem de LiveScript, com objetivo de utilizá-la dentro de um novo navegador que estava sendo desenvolvido pela Netscape
 - Posteriormente, teve o seu nome alterado para Javascript
