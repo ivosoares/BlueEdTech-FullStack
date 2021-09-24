@@ -15,8 +15,15 @@
         <input autofocus type="text" class="js-todo-input" placeholder="Ex: Ir ao mercado">
         <button type="submit">Enviar</button>
       </form>
-      <ul class="todo-list js-todo-list" id="teste">
-      </ul>
+      <ul class="todo-list js-todo-list" id="teste"></ul>
+      <!-- Adiciona bloco para ser exibido caso a lista tiver vazia -->
+      <div class="empty-state">
+        <svg class="empty-state-icon">
+          <use href="#checklist-icon"></use>
+        </svg>
+        <h2 class="empty-state-title">Adicione uma nova Tarefa</h2>
+        <p class="empty-state-description">Por favor cadastre uma nova tarefa !</p>
+      </div>
     </section>
   </main>
   <svg>
