@@ -10,7 +10,6 @@ A proposta de layout para o projeto deve seguir o prototipo desenvolvido no figm
 
 ![Imagem do projeto](filmes.jpg)
 
-
 Exemplo de listagem de array no html
 
 ```js
@@ -24,5 +23,34 @@ array.map((pessoa, indice) => {
       <p>${pessoa.nome} ${pessoa.sobrenome}</p>
     <div>
   `)
+})
+```
+
+outra forma de trabalhar com lista e pegar os dados do input
+
+```js
+let form = document.querySelector('.form');
+let pessoas = [];
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const inputNome = document.querySelector('#input-nome').value;
+  const inputSobrenome = document.querySelector('#input-nome').value;
+  const inputTelefone = document.querySelector('#input-nome').value;
+
+  const pessoa = {
+    nome: inputNome,
+    sobrenome: inputSobrenome,
+    telefone: inputTelefone,
+  }
+  pessoas.push(pessoa);
+
+  const lista = document.querySelector('.lista');
+  pessoas.map((pessoa, index) => {
+    lista.insertAdjacentElement('beforeend', `
+      <p>${pessoa.nome}</p>
+      <p>${pessoa.sobrenome}</p>
+      <p>${pessoa.telefone}</p>
+    `)
+  })
 })
 ```
