@@ -139,19 +139,28 @@ const deleteTodo = (id) => {
 }
 
 
+// local = uma forma de armazenar dados na maquina/browser do usuario.
+// adicionar a nossa todoItems no localstorage
+// chave para identificar o nome da sua 'tabela' no local storage
+// JSON - Javascript Object Notation = uma forma de escrever dados parecido com um objeto do javascript
+// pego o que eu adicionei no array e adiciono tambem no meu localstorage.
 const addToStorage = () => {
   localStorage.setItem('todoList', JSON.stringify(todoItems));
 }
 
+
+// a gente precisa pegar o array que esta no localstorage
 const renderListStorage = () => {
-  // pega o json string do local storage e transforma esse json em objeto (array de objetos);
+  // pego em formato JSON string
   const listStorage = localStorage.getItem('todoList');
+  // transformar o JSON string para value javascrit ou seja array de objetos javascript
   if(listStorage) {
+    // estou atualizando a variavel todoItems com os valores que estao no localstorage
     todoItems = JSON.parse(listStorage);
-    console.log(todoItems);
-    todoItems.map((todo, index) => {
-      renderTodo(todo);
+    todoItems.map((tarefa) => {
+      renderTodo(tarefa);
     })
   }
 }
+
 renderListStorage();
