@@ -6,7 +6,7 @@
 //   checked: false,
 //   id: 1234512315123
 // }]
-const todoItems = [];
+let todoItems = [];
 
 // Funcao que adiciona uma tarefa individual dentro do array das tarefas
 const addTodo = (text) => {
@@ -51,7 +51,7 @@ form.addEventListener('submit', (evento) => {
 
 // Funcao que renderiza os Todos na tela
 const renderTodo = (todo) => {
-  
+  addToStorage();
 
   // mapear a lista de onde deve ser incluida a tarefa
   const list = document.querySelector('.js-todo-list');
@@ -137,3 +137,21 @@ const deleteTodo = (id) => {
 
   renderTodo(todoForDelete);
 }
+
+
+const addToStorage = () => {
+  localStorage.setItem('todoList', JSON.stringify(todoItems));
+}
+
+const renderListStorage = () => {
+  // pega o json string do local storage e transforma esse json em objeto (array de objetos);
+  const listStorage = localStorage.getItem('todoList');
+  if(listStorage) {
+    todoItems = JSON.parse(listStorage);
+    console.log(todoItems);
+    todoItems.map((todo, index) => {
+      renderTodo(todo);
+    })
+  }
+}
+renderListStorage();

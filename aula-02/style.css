@@ -120,6 +120,7 @@ svg {
   display: none;
 }
 
+/* verifica se a lista esta vazia e aplica o display flex no elemento irmao */
 .todo-list:empty + .empty-state {
   display: flex;
 }
