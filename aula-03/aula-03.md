@@ -44,9 +44,10 @@ form.addEventListener('submit', (event) => {
   }
   pessoas.push(pessoa);
 
-  const lista = document.querySelector('.lista');
+  const lista = document,.
+  
   pessoas.map((pessoa, index) => {
-    lista.insertAdjacentElement('beforeend', `
+    lista.insertAdjacentHTML('beforeend', `
       <p>${pessoa.nome}</p>
       <p>${pessoa.sobrenome}</p>
       <p>${pessoa.telefone}</p>
