@@ -9,6 +9,28 @@ const port = 3000;
 
 const filmes = ['Vingadores', 'Harry Potter', 'Hulk'];
 
+const tarefas = [
+  {
+    id: 968468746854,
+    text: 'ir ao mercado',
+    check: false,
+  },
+  {
+    id: 16868468768,
+    text: 'escovar dente',
+    check: false,
+  },
+  {
+    id: 1687168795798,
+    text: 'cortar cabelo',
+    check: false,
+  },
+  {
+    id: 16846987987,
+    text: 'estudar js',
+    check: false,
+  },
+]
 
 // estou iniciando o express e minha rota GET
 // [GET] = HOME
@@ -32,6 +54,26 @@ app.get('/filmes/:id', (req, res) => {
 
   res.send(filme);
 })
+
+
+
+// [GET] /tarefas - retorna a lista de tarefas
+app.get('/tarefas', (req, res) => {
+  res.send(tarefas);
+})
+
+// [GET] /tarefas/{id} - retorna as tarefas por id
+app.get('/tarefas/:id', (req, res) => {
+  // estou pegnado o id pelo parametro que vem da requisicao 
+  const idParam = req.params.id;
+  // estou procurando na minha lista a tarefa que contem o id igual ao id que estou recebendo no parametro
+  const tarefa = tarefas.find((tarefa) => {
+    return tarefa.id == idParam;
+  })
+
+  res.send(tarefa);
+})
+
 
 
 app.listen(port, () => {
