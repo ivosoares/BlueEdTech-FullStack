@@ -13,13 +13,6 @@
       "descricao": "Vaga para desenvolvedor front-end com as tecnologias Node, MongoDB ,React, HTML, CSS, JS",
       "salario": "R$5.000",
       "senioridade": "Júnior"
-    },
-    {
-      "id": 3,
-      "titulo": "Desenvolvedor Backend",
-      "descricao": "Vaga para desenvolvedor back-end com as tecnologias Node, MongoDB, HTML, CSS, JS",
-      "salario": "R$5.000",
-      "senioridade": "Júnior"
     }
   ]
 }
