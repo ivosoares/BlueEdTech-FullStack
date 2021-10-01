@@ -1,4 +1,4 @@
-const urlApi = 'http://localhost:3000/tarefas';
+const urlApi = 'http://localhost:3000/vagas';
 const lista = document.getElementById('lista');
 // const getVagas = () => {
 //   const fetchPromisse = fetch(urlApi);
@@ -17,8 +17,11 @@ const lista = document.getElementById('lista');
 // Faz uma requisicao do tipo [GET] que recebe todas as vagas cadastradas.
 const getVagas = async () => {
   const response = await fetch(urlApi);
+  // data = uma lista (array de objetos) com as tarefas pre cadastra 
   const data = await response.json();
   console.log(data);
+
+  // iteramos esse array passando item por item e renderizandop na tela
   data.map((vaga) => {
     lista.insertAdjacentHTML('beforeend', `
     <div class="col-6">
@@ -61,7 +64,7 @@ const postVaga = async (evento) => {
 
 
   // estamos configurando a nossa requisicao antes dela ser disparada
-  const request = new Request(urlApi, {
+  const request = new Request(`${urlApi}/add`, {
     method: 'POST',
     body: JSON.stringify(vaga),
     headers: new Headers({
