@@ -33,6 +33,7 @@ const getVagas = async () => {
           <p class="card-text">Descricao: ${vaga.descricao}</p>
           <p class="card-text">Salario: R$${vaga.salario}</p>
           <p class="card-text">Seniridade: ${vaga.senioridade}</p>
+          <button type="button" onclick="putVaga()">Editar</button>
         </div>
       </div>
     </div>
@@ -88,5 +89,9 @@ const postVaga = async (evento) => {
     getVagas();
   }
 
+}
+
+const putVaga = () => {
+  
 }
 
