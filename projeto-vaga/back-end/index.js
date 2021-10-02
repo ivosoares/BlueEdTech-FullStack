@@ -16,6 +16,7 @@ app.use(cors());
 
 // estou importando as rotas das vagas
 const VagasRouter = require('./routers/vagas.routes');
+
 // estou inicializando a rota /vagas de acordo com as configuracoes do arquivo Vagas Router.
 app.use('/vagas', VagasRouter);
 
