@@ -97,6 +97,7 @@ const submitForm = async (evento) => {
 
     // verifica se houve retorno da api, caso sim, manda renderizar as vagas novamente.
     if(result) {
+      edicao = false;
       getVagas();
     }
   }
