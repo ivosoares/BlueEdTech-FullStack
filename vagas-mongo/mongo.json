@@ -1,0 +1,20 @@
+[
+  {
+    "titulo": "desenvolvedor front",
+    "descricao": "descricao da vaga",
+    "salario": 5000,
+    "senioridade": "junior"
+  },
+  {
+    "titulo": "desenvolvedor backend",
+    "descricao": "descricao da vaga de backend",
+    "salario": 7000,
+    "senioridade": "junior"
+  },
+  {
+    "titulo": "desenvolvedor full stack",
+    "descricao": "descricao da vaga de full stack",
+    "salario": 10000,
+    "senioridade": "senior"
+  }
+]
