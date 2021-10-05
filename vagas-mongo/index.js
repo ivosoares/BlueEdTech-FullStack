@@ -85,6 +85,23 @@ app.post('/vagas/add', async (req, res) => {
 })
 
 
+// [PUT] atualiza uma vaga de acordo com o id e o body recebido
+app.put('/vagas/update/:id', async (req, res) => {
+  await Vaga.updateOne({ _id: req.params.id }, req.body)
+  .then(() => {
+    res.status(200).send({
+      message: 'Atualizado com sucesso',
+    })
+    .catch((err) => {
+      console.log(err),
+      res.status(400).send({
+        error: err
+      })
+    })
+  })
+})
+
+
 
 
 
