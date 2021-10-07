@@ -30,6 +30,12 @@ class VagasController {
 
     res.status(200).send(vaga);
   }
+
+  createVaga = async (req,res) => {
+    const vaga = req.body;
+    const vagaSalva = await vagasService.createVaga(vaga);
+    res.send({ message: `vaga ${vagaSalva.titulo} criada com sucesso` });
+  }
 }
 
 module.exports = VagasController;

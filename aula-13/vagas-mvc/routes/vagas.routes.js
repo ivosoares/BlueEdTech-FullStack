@@ -11,6 +11,9 @@ router.get('/', vagasController.getVagas);
 // [GET] /vagas/id - Returna uma unica vaga por id
 router.get('/:id', vagasController.getVagasById);
 
+// [POST] /vagas - Cria uma nova vaga no banco de dados
+router.post('/', vagasController.createVaga);
+
 module.exports = router;
 
 

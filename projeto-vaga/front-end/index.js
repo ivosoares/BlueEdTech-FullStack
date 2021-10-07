@@ -53,7 +53,7 @@ const submitForm = async (evento) => {
   const vaga = {
     titulo: titulo.value,
     descricao: descricao.value,
-    salario: salario.value,
+    salario: parseInt(salario.value),
     senioridade: senioridade.value
   }
 
@@ -61,7 +61,7 @@ const submitForm = async (evento) => {
   // se estiver dispara o PUT
   if(!edicao) { 
     // estamos configurando a nossa requisicao antes dela ser disparada
-    const request = new Request(`${urlApi}/add`, {
+    const request = new Request(`${urlApi}`, {
       method: 'POST',
       body: JSON.stringify(vaga),
       headers: new Headers({

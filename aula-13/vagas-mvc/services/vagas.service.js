@@ -9,6 +9,10 @@ class VagaService {
   findById = async (id) => {
     return await Vaga.findById(id);
   }
+  
+  createVaga = async (vaga) => {
+    return await Vaga.create(vaga);
+  }
 
 }
 
