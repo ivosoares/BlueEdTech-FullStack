@@ -15,3 +15,10 @@ app.use('/vagas', VagasRoutes);
 
 const port = 3000;
 app.listen(port, () => console.log(`App rodando em htttp://localhost:${port}/`));
+
+// MVC 
+// MODEL = é responsavel pelos dados e funcoes do banco de dados
+// VIEW = a visao do cliente ou seja html(react, angular, vue, html)
+// CONTROLLER = é o responsavel por gerenciar os fluxos, define as regras
+// Rotas = sao os responsaveis pelos metodos da API.
+// servicos = responsaveis por se conectar com os nossos model (chamas as funcoes do banco de dados atraves do model)
