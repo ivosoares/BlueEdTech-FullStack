@@ -36,6 +36,22 @@ class VagasController {
     const vagaSalva = await vagasService.createVaga(vaga);
     res.send({ message: `vaga ${vagaSalva.titulo} criada com sucesso` });
   }
+
+  editVaga = async (req, res) => {
+    const id = req.params.id;
+    const vaga = req.body;
+    await vagasService.editVaga(id, vaga)
+    .then(() => {
+      res.status(200).send({message: 'Vaga atualizada com sucesso'});
+    })
+    .catch((err) => res.status(500).send({error: `erro no servdor: ${err}`}));
+  }
+
+  deleteVaga = async (req, res) => {
+    const id = req.params.id;
+    await vagasService.deleteVaga(id)
+    .then(() => res.status(200).send({message: 'Excluido com sucesso'}));
+  }
 }
 
 module.exports = VagasController;

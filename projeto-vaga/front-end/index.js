@@ -24,8 +24,8 @@ const getVagas = async () => {
           <p class="card-text">Descricao: ${vaga.descricao}</p>
           <p class="card-text">Salario: R$${vaga.salario}</p>
           <p class="card-text">Seniridade: ${vaga.senioridade}</p>
-          <button type="button" class="btn btn-primary" onclick="putVaga(${vaga.id})">Editar</button>
-          <button type="button" class="btn btn-danger" onclick="deleteVaga(${vaga.id})">Excluir</button>
+          <button type="button" class="btn btn-primary" onclick="putVaga('${vaga._id}')">Editar</button>
+          <button type="button" class="btn btn-danger" onclick="deleteVaga('${vaga._id}')">Excluir</button>
         </div>
       </div>
     </div>

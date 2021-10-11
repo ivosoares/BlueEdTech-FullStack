@@ -14,6 +14,14 @@ class VagaService {
     return await Vaga.create(vaga);
   }
 
+  editVaga = async (id, vaga) => {
+    return await Vaga.updateOne({ _id: id }, vaga);
+  }
+
+  deleteVaga = async (id) => {
+    return await Vaga.deleteOne({ _id: id});
+  }
+
 }
 
 
