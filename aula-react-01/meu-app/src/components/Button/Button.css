@@ -1,0 +1,23 @@
+.btn {
+  background: #FFF;
+  border: 1px solid black;
+  border-radius: 10px;
+  outline: none;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.danger {
+  background-color: red;
+  color: white;
+}
+.success {
+  background-color: green;
+  color: white;
+}
+.default {
+  background: blue;
+  color: #000;
+}
