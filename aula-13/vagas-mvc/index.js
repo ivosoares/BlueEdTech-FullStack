@@ -13,7 +13,7 @@ Conn();
 // falo pro express ultilizar as minhas rotas no endpoint /vagas
 app.use('/vagas', VagasRoutes);
 
-const port = 3000;
+const port = 3001;
 app.listen(port, () => console.log(`App rodando em htttp://localhost:${port}/`));
 
 // MVC 

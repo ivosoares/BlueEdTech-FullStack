@@ -7,11 +7,11 @@ import Cadastro from './pages/Cadastro/Cadastro';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Header/>
         <Switch>
-          <Route path="/" exact={true} component={Home}></Route>
-          <Route path="/cadastro" component={Cadastro}></Route>
+          <Route path="/" exact={true} component={Home}/>
+          <Route path="/cadastro" component={Cadastro}/>
         </Switch>
       <Footer/>
     </div>
