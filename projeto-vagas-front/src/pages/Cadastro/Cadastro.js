@@ -3,7 +3,7 @@ import './Cadastro.css';
 
 const Cadastro = () => {
 
-  const handleSubmit = (evento) => {
+  const handleSubmit = async (evento) => {
     evento.preventDefault();
     const titulo = evento.target.titulo.value;
     const salario = evento.target.salario.value;
@@ -16,6 +16,18 @@ const Cadastro = () => {
       descricao,
       senioridade
     }
+
+    const request = new Request(`http://localhost:3001/vagas`, {
+      method: 'POST',
+      body: JSON.stringify(vaga),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    })
+
+    const response = await fetch(request);
+    const result = await response.json();
+    alert(result.message);
     
   }
 
