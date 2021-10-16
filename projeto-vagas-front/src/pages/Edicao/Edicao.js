@@ -105,15 +105,17 @@ const Edicao = (props) => {
               </div>
               <div className="col">
                 <div className="form-floating">
-                  <input
-                    type="text"
-                    value={vaga.senioridade}
+                  <select value={vaga.senioridade}
                     className="form-control"
                     name="senioridade"
                     id="floatingsenioridade"
-                    placeholder="Digite a Senioridade"
+                    value={vaga.senioridade}
                     onChange={handleFieldsChange}
-                  />
+                    >
+                    <option value="junior">Junior</option>
+                    <option value="pleno">pleno</option>
+                    <option value="senior">senior</option>
+                  </select>
                   <label htmlFor="floatingsenioridade">Senioridade</label>
                 </div>
               </div>
