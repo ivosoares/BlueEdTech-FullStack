@@ -33,8 +33,11 @@ class VagasController {
 
   createVaga = async (req,res) => {
     const vaga = req.body;
-    const vagaSalva = await vagasService.createVaga(vaga);
-    res.send({ message: `vaga ${vagaSalva.titulo} criada com sucesso` });
+    const vagaSalva = await vagasService.createVaga(vaga)
+    .then(() => {
+      res.send({ message: `vaga criada com sucesso` });
+    })
+    .catch((err) => res.status(500).send({error: `erro no servdor: ${err}`}));
   }
 
   editVaga = async (req, res) => {

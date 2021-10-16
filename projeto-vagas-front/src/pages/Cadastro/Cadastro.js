@@ -1,11 +1,14 @@
 import React from 'react'
 import './Cadastro.css';
+import Api from '../../api/api';
 
-const Cadastro = () => {
+const Cadastro = (props) => {
+  const history = props.history;
 
   const handleSubmit = async (evento) => {
     evento.preventDefault();
-    const titulo = evento.target.titulo.value;
+    // pego o valor que usuario digitou nos inputs
+    const titulo = evento.target.titulo.value; 
     const salario = evento.target.salario.value;
     const descricao = evento.target.descricao.value;
     const senioridade = evento.target.senioridade.value;
@@ -16,18 +19,15 @@ const Cadastro = () => {
       descricao,
       senioridade
     }
-
-    const request = new Request(`http://localhost:3001/vagas`, {
-      method: 'POST',
-      body: JSON.stringify(vaga),
-      headers: new Headers({
-        'Content-Type': 'application/json'
-      })
-    })
-
-    const response = await fetch(request);
-    const result = await response.json();
-    alert(result.message);
+    
+    try {
+      const response = await Api.fetchPost(vaga)
+      const result = await response.json();
+      alert(result.message);
+      history.push('/'); // forca o historico a voltar para a rota de / => home
+    } catch(error) {
+      console.log(error);
+    }
     
   }
 
@@ -46,13 +46,13 @@ const Cadastro = () => {
             <div className="row">
               <div className="col">
                 <div className="form-floating mb-3">
-                  <input type="titulo" className="form-control" name="titulo" id="floatingInput" placeholder="Digite o Titulo"/>
+                  <input type="text" className="form-control" name="titulo" id="floatingInput" placeholder="Digite o Titulo"/>
                   <label htmlFor="floatingInput">Titulo</label>
                 </div>
               </div>
               <div className="col">
                 <div className="form-floating">
-                  <input type="salario" className="form-control" name="salario" id="floatingsalario" placeholder="Digite o Salario"/>
+                  <input type="text" className="form-control" name="salario" id="floatingsalario" placeholder="Digite o Salario"/>
                   <label htmlFor="floatingsalario">Salario</label>
                 </div>
               </div>
@@ -60,13 +60,13 @@ const Cadastro = () => {
             <div className="row">
               <div className="col">
                 <div className="form-floating mb-3">
-                  <input type="descricao" className="form-control" name="descricao" id="floatingInput" placeholder="Digite a Descricao"/>
+                  <input type="text" className="form-control" name="descricao" id="floatingInput" placeholder="Digite a Descricao"/>
                   <label htmlFor="floatingInput">Descricao</label>
                 </div>
               </div>
               <div className="col">
                 <div className="form-floating">
-                  <input type="senioridade" className="form-control" name="senioridade" id="floatingsenioridade" placeholder="Digite a Senioridade"/>
+                  <input type="text" className="form-control" name="senioridade" id="floatingsenioridade" placeholder="Digite a Senioridade"/>
                   <label htmlFor="floatingsenioridade">Senioridade</label>
                 </div>
               </div>
